@@ -30,11 +30,11 @@ def generate_friendly_hostname(s):
     >>> generate_friendly_hostname('')
     'unruffled-bardeen-400'
     >>> generate_friendly_hostname('0123456789')
-    'kind-goodall-242'
+    'kind-greider-242'
     >>> generate_friendly_hostname('0123456788')
     'xenodochial-napier-480'
     >>> generate_friendly_hostname('example')
-    'fervent-einstein-793'
+    'fervent-elbakyan-793'
 
     """
     digest = hashlib.sha256(s.encode('utf8')).hexdigest()
@@ -299,9 +299,6 @@ NOUNS = [
 
     # Pafnuty Chebyshev - Russian mathematician. He is known fo his works on probability, statistics, mechanics, analytical geometry and number theory https://en.wikipedia.org/wiki/Pafnuty_Chebyshev
     "chebyshev",
-
-    # Clifford Christopher Cocks - British mathematician and cryptographer employed by the GCHQ. Invented in 1973 an equivalent of what is now known as the RSA public-key cryptosystem (Rivest, Shamir and Adleman first publicly described RSA in 1978). https://en.wikipedia.org/wiki/Clifford_Cocks
-    "cocks",
 
     # Bram Cohen - American computer programmer and author of the BitTorrent peer-to-peer protocol. https://en.wikipedia.org/wiki/Bram_Cohen
     "cohen",
