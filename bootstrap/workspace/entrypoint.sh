@@ -21,9 +21,10 @@ mount -o loop,rw base.iso base
 
 # Update base image
 mkdir -p lc-agent
-cp -a ./base/* lc-agent/
-cp preseed.cfg lc-agent/preseed/
-cp isolinux.cfg lc-agent/isolinux/
+rsync -a ./base/ ./lc-agent/
+cp ks.cfg lc-agent/
+cp ubuntu-auto.seed lc-agent/
+sed -i -r 's/timeout\s+[0-9]+/timeout 3/g' ./lc-agent/isolinux/isolinux.cfg
 cp txt.cfg lc-agent/isolinux/
 
 # Create lc-agent image in images directory

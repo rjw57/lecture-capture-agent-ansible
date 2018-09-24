@@ -1,0 +1,17 @@
+# Unmount drives with active partitions. Without this command all the
+# installation process would stop and require confirmation to unmount drives
+# that are already mounted.
+d-i preseed/early_command string umount /media || true
+
+# Don't install recommended items
+d-i preseed base-installer/install-recommends boolean false
+
+# Install only security updates automatically
+d-i preseed pkgsel/update-policy select unattended-upgrades
+
+# Don't ask for confirmation when partitioning. Likely only a subset of these
+# are truly required but the Internet is divided on what that subset is.
+d-i partman/choose_partition \
+  select Finish partitioning and write changes to disk
+d-i partman/confirm_write_new_label boolean true
+d-i partman/confirm boolean true
